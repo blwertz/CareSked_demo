@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Management - CareSked Management Console</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+	<link rel="stylesheet" href="mystyle.css">
+    
+</head>
+
+<body>
+
+    <header>
+        <img src="CareSked_Logo.jpg" alt="CareSked Logo">
+        <h1>Staff Management</h1>
+    </header>
+   	    <nav>
+    <a href="index2.html">Home</a>
+
+    <div class="dropdown">
+        <a href="staff_management.html" class="dropbtn">Staff Management</a>
+        <div class="dropdown-content">
+            <a href="staff_management.html#add-staff">Add Staff</a>
+            <a href="staff_management.html#staff-directory">Staff Directory</a>
+            <a href="staff_management.html#manage-roles">Manage Roles</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <a href="schedule_management.html" class="dropbtn">Schedule Management</a>
+        <div class="dropdown-content">
+            <a href="schedule_management.html#review-schedule">Review Schedule</a>
+            <a href="schedule_management.html#edit-schedule">Edit Schedule</a>
+            <a href="schedule_management.html#generate-reports">Generate Reports</a>
+        </div>
+    </div>
+       <div class="dropdown">
+        <a href="account_management.html" class="dropbtn">Account Management</a>
+        <div class="dropdown-content">
+            <a href="account_management.html#manage-parents">Manage Parent Account</a>
+            <a href="account_management.html#parent-directory">Parent Directory</a>
+            <a href="account_management.html#billing-invoices">Billing/Invoices</a>
+			<a href="account_management.html#system-settings">System Settings</a>
+        </div>
+    </div>
+     </div>
+       <div class="dropdown">
+        <a href="sms_management.html" class="dropbtn">SMS Management</a>
+        <div class="dropdown-content">
+            <a href="sms_management.html#manage-templates">Manage SMS Templates</a>
+            <a href="sms_management.html#send-notifications">Send SMS Notifications</a>
+            <a href="sms_management.html#sms-history">View SMS History</a>
+        </div>
+    </div>
+    <a href="login.html" class="login-button">Login</a>
+	</nav>
+    <div class="container">
+
+        <!-- Add New Staff Section -->
+        <div id="add-staff" class="section">
+            <h2>Add New Staff</h2>
+            <form>
+                <div class="form-group">
+                    <label for="staff-name">Staff Name</label>
+                    <input type="text" id="staff-name" name="staff-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="staff-role">Role</label>
+                    <select id="staff-role" name="staff-role" required>
+                        <option value="teacher">Teacher</option>
+                        <option value="assistant">Assistant</option>
+                        <option value="manager">Manager</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="staff-email">Email</label>
+                    <input type="email" id="staff-email" name="staff-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="staff-phone">Phone</label>
+                    <input type="text" id="staff-phone" name="staff-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="staff-availability">Availability</label>
+                    <input type="text" id="staff-availability" name="staff-availability" placeholder="e.g. Mon-Fri, 9am-5pm" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Add Staff</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Staff Directory Section -->
+        <div id="staff-directory" class="section">
+            <h2>Staff Directory</h2>
+            <div class="staff-directory">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Availability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>Teacher</td>
+                            <td>johndoe@example.com</td>
+                            <td>+1 234 567 890</td>
+                            <td>Mon-Fri, 9am-5pm</td>
+                        </tr>
+                        <!-- Add more staff members here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Manage Roles Section -->
+        <div id="manage-roles" class="section">
+            <h2>Manage Roles</h2>
+            <form>
+                <div class="form-group">
+                    <label for="staff-select">Select Staff</label>
+                    <select id="staff-select" name="staff-select">
+                        <option value="john-doe">John Doe</option>
+                        <!-- Add more staff options here -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="new-role">New Role</label>
+                    <select id="new-role" name="new-role">
+                        <option value="teacher">Teacher</option>
+                        <option value="assistant">Assistant</option>
+                        <option value="manager">Manager</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Update Role</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Schedule Management Section -->
+        <div id="schedule-management" class="section">
+            <h2>Schedule Management</h2>
+            <div id="calendar"></div>
+        </div>
+
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#calendar').fullCalendar({
+                defaultView: 'month',
+                editable: true,
+                events: [
+                    // Sample events
+                    {
+                        title: 'Staff Meeting',
+                        start: '2024-08-10T10:00:00',
+                        end: '2024-08-10T12:00:00'
+                    },
+                    {
+                        title: 'John Doe - Shift',
+                        start: '2024-08-11T09:00:00',
+                        end: '2024-08-11T17:00:00'
+                    }
+                ]
+            });
+        });
+    </script>
+
+</body>
+ <footer>
+        <p>&copy; 2024 CareSked. All rights reserved.</p>
+        <nav>
+             <a href="index2.html">Home</a> | 
+            <a href="staff_management.html">Staff Management</a> | 
+            <a href="schedule_management.html">Schedule Management</a> | 
+            <a href="account_management.html">Account Management</a> |
+			<a href="sms_management.html">SMS Management</a>
+        </nav>
+    </footer>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Management - CareSked Management Console</title>
+    <link rel="stylesheet" href="mystyle.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <img src="CareSked_Logo.jpg" alt="CareSked Logo">
+        <h1>Account Management</h1>
+    </header>
+
+      	    <nav>
+    <a href="index2.html">Home</a>
+
+    <div class="dropdown">
+        <a href="staff_management.html" class="dropbtn">Staff Management</a>
+        <div class="dropdown-content">
+            <a href="staff_management.html#add-staff">Add Staff</a>
+            <a href="staff_management.html#staff-directory">Staff Directory</a>
+            <a href="staff_management.html#manage-roles">Manage Roles</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <a href="schedule_management.html" class="dropbtn">Schedule Management</a>
+        <div class="dropdown-content">
+            <a href="schedule_management.html#review-schedule">Review Schedule</a>
+            <a href="schedule_management.html#edit-schedule">Edit Schedule</a>
+            <a href="schedule_management.html#generate-reports">Generate Reports</a>
+        </div>
+    </div>
+       <div class="dropdown">
+        <a href="account_management.html" class="dropbtn">Account Management</a>
+        <div class="dropdown-content">
+            <a href="account_management.html#manage-parents">Manage Parent Account</a>
+            <a href="account_management.html#parent-directory">Parent Directory</a>
+            <a href="account_management.html#billing-invoices">Billing/Invoices</a>
+			<a href="account_management.html#system-settings">System Settings</a>
+        </div>
+    </div>
+     </div>
+       <div class="dropdown">
+        <a href="sms_management.html" class="dropbtn">SMS Management</a>
+        <div class="dropdown-content">
+            <a href="sms_management.html#manage-templates">Manage SMS Templates</a>
+            <a href="sms_management.html#send-notifications">Send SMS Notifications</a>
+            <a href="sms_management.html#sms-history">View SMS History</a>
+        </div>
+    </div>
+    <a href="login.html" class="login-button">Login</a>
+	</nav>
+
+    <div class="container">
+        <!-- Manage Parent Accounts Section -->
+        <div id="manage-parents" class="section">
+            <h2>Manage Parent Accounts</h2>
+            <form>
+                <div class="form-group">
+                    <label for="parent-name">Parent Name</label>
+                    <input type="text" id="parent-name" name="parent-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="parent-email">Email</label>
+                    <input type="email" id="parent-email" name="parent-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="parent-phone">Phone</label>
+                    <input type="text" id="parent-phone" name="parent-phone" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Add Parent</button>
+                </div>
+            </form>
+            <div class="parent-directory">
+                <h3>Parent Directory</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jane Doe</td>
+                            <td>janedoe@example.com</td>
+                            <td>+1 234 567 890</td>
+                        </tr>
+                        <!-- Add more parent accounts here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Billing and Invoices Section -->
+        <div id="billing-invoices" class="section">
+            <h2>Billing and Invoices</h2>
+            <form>
+                <div class="form-group">
+                    <label for="parent-select">Select Parent</label>
+                    <select id="parent-select" name="parent-select">
+                        <option value="jane-doe">Jane Doe</option>
+                        <!-- Add more parent options here -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="invoice-amount">Invoice Amount</label>
+                    <input type="number" id="invoice-amount" name="invoice-amount" required>
+                </div>
+                <div class="form-group">
+                    <label for="invoice-date">Invoice Date</label>
+                    <input type="date" id="invoice-date" name="invoice-date" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Generate Invoice</button>
+                </div>
+            </form>
+            <div class="invoice-history">
+                <h3>Invoice History</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parent</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jane Doe</td>
+                            <td>$100.00</td>
+                            <td>2024-08-01</td>
+                        </tr>
+                        <!-- Add more invoice history here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- System Settings Section -->
+        <div id="system-settings" class="section">
+            <h2>System Settings</h2>
+            <form>
+                <div class="form-group">
+                    <label for="setting-name">Setting Name</label>
+                    <input type="text" id="setting-name" name="setting-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="setting-value">Setting Value</label>
+                    <input type="text" id="setting-value" name="setting-value" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Update Setting</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+ <footer>
+        <p>&copy; 2024 CareSked. All rights reserved.</p>
+        <nav>
+             <a href="index2.html">Home</a> | 
+            <a href="staff_management.html">Staff Management</a> | 
+            <a href="schedule_management.html">Schedule Management</a> | 
+            <a href="account_management.html">Account Management</a> |
+			<a href="sms_management.html">SMS Management</a>
+        </nav>
+    </footer>
+</html>

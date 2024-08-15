@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Management - CareSked Management Console</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <link rel="stylesheet" href="mystyle.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #455972;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            max-height: 50px;
+            vertical-align: middle;
+            margin-right: 20px;
+        }
+
+        header h1 {
+            display: inline;
+            font-size: 24px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #f8f9fa;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: #455972;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 22px;
+            color: #455972;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f4f4f9;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+
+        #calendar {
+            max-width: 100%;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img src="CareSked_Logo.jpg" alt="CareSked Logo">
+        <h1>Schedule Management</h1>
+    </header>
+
+     	    <nav>
+    <a href="index2.html">Home</a>
+
+    <div class="dropdown">
+        <a href="staff_management.html" class="dropbtn">Staff Management</a>
+        <div class="dropdown-content">
+            <a href="staff_management.html#add-staff">Add Staff</a>
+            <a href="staff_management.html#staff-directory">Staff Directory</a>
+            <a href="staff_management.html#manage-roles">Manage Roles</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <a href="schedule_management.html" class="dropbtn">Schedule Management</a>
+        <div class="dropdown-content">
+            <a href="schedule_management.html#review-schedule">Review Schedule</a>
+            <a href="schedule_management.html#edit-schedule">Edit Schedule</a>
+            <a href="schedule_management.html#generate-reports">Generate Reports</a>
+        </div>
+    </div>
+       <div class="dropdown">
+        <a href="account_management.html" class="dropbtn">Account Management</a>
+        <div class="dropdown-content">
+            <a href="account_management.html#manage-parents">Manage Parent Account</a>
+            <a href="account_management.html#parent-directory">Parent Directory</a>
+            <a href="account_management.html#billing-invoices">Billing/Invoices</a>
+			<a href="account_management.html#system-settings">System Settings</a>
+        </div>
+    </div>
+     </div>
+       <div class="dropdown">
+        <a href="sms_management.html" class="dropbtn">SMS Management</a>
+        <div class="dropdown-content">
+            <a href="sms_management.html#manage-templates">Manage SMS Templates</a>
+            <a href="sms_management.html#send-notifications">Send SMS Notifications</a>
+            <a href="sms_management.html#sms-history">View SMS History</a>
+        </div>
+    </div>
+    <a href="login.html" class="login-button">Login</a>
+	</nav>
+
+    <div class="container">
+
+        <!-- Review Schedule Section -->
+        <div id="review-schedule" class="section">
+            <h2>Review Schedule</h2>
+            <div id="calendar"></div>
+        </div>
+
+        <!-- Edit Schedule Section -->
+        <div id="edit-schedule" class="section">
+            <h2>Edit Schedule</h2>
+            <form id="edit-schedule-form">
+                <div class="form-group">
+                    <label for="staff-name">Staff Name</label>
+                    <select id="staff-name" name="staff-name" required>
+                        <option value="John Doe">John Doe</option>
+                        <option value="Jane Smith">Jane Smith</option>
+                        <!-- Add more staff options here -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="shift-date">Shift Date</label>
+                    <input type="date" id="shift-date" name="shift-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="start-time">Start Time</label>
+                    <input type="time" id="start-time" name="start-time" required>
+                </div>
+                <div class="form-group">
+                    <label for="end-time">End Time</label>
+                    <input type="time" id="end-time" name="end-time" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Add/Update Shift</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Generate Reports Section -->
+        <div id="generate-reports" class="section">
+            <h2>Generate Reports</h2>
+            <form>
+                <div class="form-group">
+                    <label for="report-type">Report Type</label>
+                    <select id="report-type" name="report-type">
+                        <option value="staffing-levels">Staffing Levels</option>
+                        <option value="shift-coverage">Shift Coverage</option>
+                        <!-- Add more report types here -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="report-period">Report Period</label>
+                    <select id="report-period" name="report-period">
+                        <option value="last-week">Last Week</option>
+                        <option value="last-month">Last Month</option>
+                        <option value="last-year">Last Year</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Generate Report</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#calendar').fullCalendar({
+                defaultView: 'month',
+                editable: true,
+                events: [
+                    // Sample events
+                    {
+                        title: 'Staff Meeting',
+                        start: '2024-08-10T10:00:00',
+                        end: '2024-08-10T12:00:00'
+                    },
+                    {
+                        title: 'John Doe - Shift',
+                        start: '2024-08-11T09:00:00',
+                        end: '2024-08-11T17:00:00'
+                    }
+                ]
+            });
+
+            // Handle form submissions for adding/updating shifts
+            $('#edit-schedule-form').on('submit', function(e) {
+                e.preventDefault();
+
+                // Get form values
+                var staffName = $('#staff-name').val();
+                var shiftDate = $('#shift-date').val();
+                var startTime = $('#start-time').val();
+                var endTime = $('#end-time').val();
+
+                // Add or update event on the calendar
+                $('#calendar').fullCalendar('renderEvent', {
+                    title: staffName + ' - Shift',
+                    start: shiftDate + 'T' + startTime,
+                    end: shiftDate + 'T' + endTime
+                }, true);
+
+                alert('Shift has been added/updated successfully!');
+            });
+        });
+    </script>
+
+</body>
+ <footer>
+        <p>&copy; 2024 CareSked. All rights reserved.</p>
+        <nav>
+             <a href="index2.html">Home</a> | 
+            <a href="staff_management.html">Staff Management</a> | 
+            <a href="schedule_management.html">Schedule Management</a> | 
+            <a href="account_management.html">Account Management</a> |
+			<a href="sms_management.html">SMS Management</a>
+        </nav>
+    </footer>
+</html>

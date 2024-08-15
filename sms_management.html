@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Notifications - CareSked Management Console</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="CareSked_Logo.jpg" alt="CareSked Logo">
+        <h1>SMS Notifications</h1>
+    </header>
+    
+      	    <nav>
+    <a href="index2.html">Home</a>
+
+    <div class="dropdown">
+        <a href="staff_management.html" class="dropbtn">Staff Management</a>
+        <div class="dropdown-content">
+            <a href="staff_management.html#add-staff">Add Staff</a>
+            <a href="staff_management.html#staff-directory">Staff Directory</a>
+            <a href="staff_management.html#manage-roles">Manage Roles</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <a href="schedule_management.html" class="dropbtn">Schedule Management</a>
+        <div class="dropdown-content">
+            <a href="schedule_management.html#review-schedule">Review Schedule</a>
+            <a href="schedule_management.html#edit-schedule">Edit Schedule</a>
+            <a href="schedule_management.html#generate-reports">Generate Reports</a>
+        </div>
+    </div>
+       <div class="dropdown">
+        <a href="account_management.html" class="dropbtn">Account Management</a>
+        <div class="dropdown-content">
+            <a href="account_management.html#manage-parents">Manage Parent Account</a>
+            <a href="account_management.html#parent-directory">Parent Directory</a>
+            <a href="account_management.html#billing-invoices">Billing/Invoices</a>
+			<a href="account_management.html#system-settings">System Settings</a>
+        </div>
+    </div>
+     </div>
+       <div class="dropdown">
+        <a href="sms_management.html" class="dropbtn">SMS Management</a>
+        <div class="dropdown-content">
+            <a href="sms_management.html#manage-templates">Manage SMS Templates</a>
+            <a href="sms_management.html#send-notifications">Send SMS Notifications</a>
+            <a href="sms_management.html#sms-history">View SMS History</a>
+        </div>
+    </div>
+    <a href="login.html" class="login-button">Login</a>
+	</nav>
+
+    <div class="container">
+
+        <!-- Manage SMS Templates Section -->
+        <div id="manage-templates" class="section">
+            <h2>Manage SMS Templates</h2>
+            <form>
+                <div class="form-group">
+                    <label for="template-name">Template Name</label>
+                    <input type="text" id="template-name" name="template-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="template-content">Template Content</label>
+                    <textarea id="template-content" name="template-content" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Save Template</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Send SMS Notifications Section -->
+        <div id="send-notifications" class="section">
+            <h2>Send SMS Notifications</h2>
+            <form>
+                <div class="form-group">
+                    <label for="recipient-group">Select Recipients</label>
+                    <select id="recipient-group" name="recipient-group" required>
+                        <option value="all-parents">All Parents</option>
+                        <option value="staff">Staff</option>
+                        <option value="custom-group">Custom Group</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sms-template">Select Template</label>
+                    <select id="sms-template" name="sms-template" required>
+                        <option value="template-1">Template 1</option>
+                        <option value="template-2">Template 2</option>
+                        <!-- Add more templates here -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Send Notification</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- View SMS History Section -->
+        <div id="sms-history" class="section">
+            <h2>View SMS History</h2>
+            <div class="sms-history">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Recipient Group</th>
+                            <th>Message Content</th>
+                            <th>Date Sent</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>All Parents</td>
+                            <td>Reminder: Parent-teacher meeting on Friday.</td>
+                            <td>2024-08-08</td>
+                            <td>Sent</td>
+                        </tr>
+                        <!-- Add more sent SMS records here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+ <footer>
+        <p>&copy; 2024 CareSked. All rights reserved.</p>
+        <nav>
+             <a href="index2.html">Home</a> | 
+            <a href="staff_management.html">Staff Management</a> | 
+            <a href="schedule_management.html">Schedule Management</a> | 
+            <a href="account_management.html">Account Management</a> |
+			<a href="sms_management.html">SMS Management</a>
+        </nav>
+    </footer>
+</html>

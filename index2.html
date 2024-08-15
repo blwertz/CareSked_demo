@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareSked Management Console</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+
+
+    <header>
+        <img src="CareSked_Logo.jpg" alt="CareSked Logo">
+        <h1>Management Console</h1>
+    </header>
+
+    	    <nav>
+    <a href="index2.html">Home</a>
+
+    <div class="dropdown">
+        <a href="staff_management.html" class="dropbtn">Staff Management</a>
+        <div class="dropdown-content">
+            <a href="staff_management.html#add-staff">Add Staff</a>
+            <a href="staff_management.html#staff-directory">Staff Directory</a>
+            <a href="staff_management.html#manage-roles">Manage Roles</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <a href="schedule_management.html" class="dropbtn">Schedule Management</a>
+        <div class="dropdown-content">
+            <a href="schedule_management.html#review-schedule">Review Schedule</a>
+            <a href="schedule_management.html#edit-schedule">Edit Schedule</a>
+            <a href="schedule_management.html#generate-reports">Generate Reports</a>
+        </div>
+    </div>
+       <div class="dropdown">
+        <a href="account_management.html" class="dropbtn">Account Management</a>
+        <div class="dropdown-content">
+            <a href="account_management.html#manage-parents">Manage Parent Account</a>
+            <a href="account_management.html#parent-directory">Parent Directory</a>
+            <a href="account_management.html#billing-invoices">Billing/Invoices</a>
+			<a href="account_management.html#system-settings">System Settings</a>
+        </div>
+    </div>
+     </div>
+       <div class="dropdown">
+        <a href="sms_management.html" class="dropbtn">SMS Management</a>
+        <div class="dropdown-content">
+            <a href="sms_management.html#manage-templates">Manage SMS Templates</a>
+            <a href="sms_management.html#send-notifications">Send SMS Notifications</a>
+            <a href="sms_management.html#sms-history">View SMS History</a>
+        </div>
+    </div>
+    <a href="login.html" class="login-button">Login</a>
+	</nav>
+		<h1 class="welcome-text">Welcome to CareSked!</h1>
+      <div class="container">
+        <!-- Staff Management Section -->
+        <div id="staff-management" class="section">
+            <a href="staff_management.html"><h2>Staff Management</h2></a>
+            <div class="section-content">
+                <div>
+                    <a href="staff_management.html#add-staff"><h3>Add New Staff</h3></a>
+                    <p>Input and manage staff details including roles, contact information, and availability.</p>
+                </div>
+                <div>
+                     <a href="staff_management.html#staff-directory"><h3>Staff Directory</h3></a>
+                    <p>View and update the current list of staff members and their roles within the company.</p>
+                </div>
+                <div>
+                    <a href="staff_management.html#manage-roles"><h3>Manage Roles</h3></a>
+                    <p>Assign and update roles for each staff member to ensure optimal coverage and service quality.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Schedule Management Section -->
+        <div id="schedule-management" class="section">
+            <h2>Schedule Management</h2>
+            <div class="section-content">
+                <div>
+                    <a href="schedule_management.html#review-schedule"><h3>View Schedule</h3><a>
+                    <p>Review the full schedule for staff and children, ensuring that all shifts are covered.</p>
+                </div>
+                <div>
+                    <a href="schedule_management.html#edit-schedule"><h3>Edit Schedule</h3></a>
+                    <p>Make adjustments to the schedule as needed, including adding, removing, or updating shifts.</p>
+                </div>
+                <div>
+                    <a href="schedule_management.html#generate-reports"><h3>Generate Reports</h3></a>
+                    <p>Produce detailed scheduling reports to analyze trends and optimize staffing levels.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Management Section -->
+        <div id="account-management" class="section">
+            <h2>Account Management</h2>
+            <div class="section-content">
+                <div>
+                    <a href="account_management.html#manage-parents"><h3>Parent Accounts</h3></a>
+                    <p>Manage parent accounts including contact details, payment history, and account status.</p>
+                </div>
+                <div>
+                    <a href="account_management.html#billing-invoices"><h3>Billing & Invoicing</h3></a>
+                    <p>Oversee all billing activities, generate invoices, and send payment reminders to parents.</p>
+                </div>
+                <div>
+                    <a href="account_management.html#system-settings"><h3>System Settings</h3></a>
+                    <p>Configure system settings including notification preferences, security settings, and more.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SMS Notifications Section -->
+        <div id="sms-notifications" class="section">
+            <h2>SMS Notifications</h2>
+            <div class="section-content">
+                <div>
+                    <a href="sms_management.html#manage-templates"><h3>Manage Templates</h3></a>
+                    <p>Create and edit SMS templates for common notifications, ensuring consistency in communication.</p>
+                </div>
+                <div>
+                    <a href="sms_management.html#send-notifications"><h3>Send Notifications</h3></a>
+                    <p>Select recipients and send SMS notifications for important updates, such as schedule changes or emergency alerts.</p>
+                </div>
+                <div>
+                    <a href="sms_management.html#sms-history"><h3>View History</h3></a>
+                    <p>Review the history of sent SMS notifications, including delivery status and timestamps.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+ <footer>
+        <p>&copy; 2024 CareSked. All rights reserved.</p>
+        <nav>
+             <a href="index2.html">Home</a> | 
+            <a href="staff_management.html">Staff Management</a> | 
+            <a href="schedule_management.html">Schedule Management</a> | 
+            <a href="account_management.html">Account Management</a> |
+			<a href="sms_management.html">SMS Management</a>
+        </nav>
+    </footer>
+</html>
